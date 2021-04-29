@@ -1,1 +1,11 @@
-../Source_Files/GeneratePDF
+#!/bin/bash
+
+# ../Source_Files/GeneratePDF
+
+len=`ls *.png | wc -l`
+str="convert "
+for i in `seq 1 $len`; do
+    str=`echo $str img$i.png`
+done
+str=`echo $str output.pdf`
+exec $str
